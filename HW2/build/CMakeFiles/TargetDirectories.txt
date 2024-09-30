@@ -1,0 +1,3 @@
+/Users/jamessong/Desktop/Michigan 2022-2026/Fall 2024/Graphics and GenAI (498)/EECS498-014-Graphics-Materials/HW2/build/CMakeFiles/RayTracing.dir
+/Users/jamessong/Desktop/Michigan 2022-2026/Fall 2024/Graphics and GenAI (498)/EECS498-014-Graphics-Materials/HW2/build/CMakeFiles/edit_cache.dir
+/Users/jamessong/Desktop/Michigan 2022-2026/Fall 2024/Graphics and GenAI (498)/EECS498-014-Graphics-Materials/HW2/build/CMakeFiles/rebuild_cache.dir

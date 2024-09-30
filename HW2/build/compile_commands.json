@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/Users/jamessong/Desktop/Michigan 2022-2026/Fall 2024/Graphics and GenAI (498)/EECS498-014-Graphics-Materials/HW2/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -mmacosx-version-min=14.4 -std=gnu++17 -o CMakeFiles/RayTracing.dir/main.cpp.o -c \"/Users/jamessong/Desktop/Michigan 2022-2026/Fall 2024/Graphics and GenAI (498)/EECS498-014-Graphics-Materials/HW2/main.cpp\"",
+  "file": "/Users/jamessong/Desktop/Michigan 2022-2026/Fall 2024/Graphics and GenAI (498)/EECS498-014-Graphics-Materials/HW2/main.cpp"
+},
+{
+  "directory": "/Users/jamessong/Desktop/Michigan 2022-2026/Fall 2024/Graphics and GenAI (498)/EECS498-014-Graphics-Materials/HW2/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -mmacosx-version-min=14.4 -std=gnu++17 -o CMakeFiles/RayTracing.dir/Scene.cpp.o -c \"/Users/jamessong/Desktop/Michigan 2022-2026/Fall 2024/Graphics and GenAI (498)/EECS498-014-Graphics-Materials/HW2/Scene.cpp\"",
+  "file": "/Users/jamessong/Desktop/Michigan 2022-2026/Fall 2024/Graphics and GenAI (498)/EECS498-014-Graphics-Materials/HW2/Scene.cpp"
+},
+{
+  "directory": "/Users/jamessong/Desktop/Michigan 2022-2026/Fall 2024/Graphics and GenAI (498)/EECS498-014-Graphics-Materials/HW2/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -mmacosx-version-min=14.4 -std=gnu++17 -o CMakeFiles/RayTracing.dir/Accel.cpp.o -c \"/Users/jamessong/Desktop/Michigan 2022-2026/Fall 2024/Graphics and GenAI (498)/EECS498-014-Graphics-Materials/HW2/Accel.cpp\"",
+  "file": "/Users/jamessong/Desktop/Michigan 2022-2026/Fall 2024/Graphics and GenAI (498)/EECS498-014-Graphics-Materials/HW2/Accel.cpp"
+},
+{
+  "directory": "/Users/jamessong/Desktop/Michigan 2022-2026/Fall 2024/Graphics and GenAI (498)/EECS498-014-Graphics-Materials/HW2/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -mmacosx-version-min=14.4 -std=gnu++17 -o CMakeFiles/RayTracing.dir/Math.cpp.o -c \"/Users/jamessong/Desktop/Michigan 2022-2026/Fall 2024/Graphics and GenAI (498)/EECS498-014-Graphics-Materials/HW2/Math.cpp\"",
+  "file": "/Users/jamessong/Desktop/Michigan 2022-2026/Fall 2024/Graphics and GenAI (498)/EECS498-014-Graphics-Materials/HW2/Math.cpp"
+},
+{
+  "directory": "/Users/jamessong/Desktop/Michigan 2022-2026/Fall 2024/Graphics and GenAI (498)/EECS498-014-Graphics-Materials/HW2/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -mmacosx-version-min=14.4 -std=gnu++17 -o CMakeFiles/RayTracing.dir/Ray.cpp.o -c \"/Users/jamessong/Desktop/Michigan 2022-2026/Fall 2024/Graphics and GenAI (498)/EECS498-014-Graphics-Materials/HW2/Ray.cpp\"",
+  "file": "/Users/jamessong/Desktop/Michigan 2022-2026/Fall 2024/Graphics and GenAI (498)/EECS498-014-Graphics-Materials/HW2/Ray.cpp"
+}
+]

@@ -14,8 +14,47 @@ Vec3 Scene::trace(const Ray &ray, int bouncesLeft, bool discardEmission) {
     if (bouncesLeft < 0) return {};
 
     // TODO...
-    
-    return {};
+
+    // 5.
+    // Intersection inter = getIntersection(ray);
+    // if (!inter.happened) return {};
+
+    // Vec3 diffuseColor = inter.getDiffuseColor();
+
+    // return diffuseColor;
+
+    //6. 
+    Intersection inter = getIntersection(ray);
+    if (!inter.happened) return {};
+    Vec3 wi = Random::randomHemisphereDirection(inter.getNormal());
+
+    Ray secondRay{inter.pos, wi};
+
+    Vec3 brdf = inter.calcBRDF(-secondRay.dir, -ray.dir);
+    float cosineTerm = secondRay.dir.dot(inter.getNormal());
+
+    // Intersection secondInter = getIntersection(nextRay);
+    Intersection secondInter = getIntersection(secondRay);
+    if (!secondInter.happened) return {};
+    Vec3 Li = secondInter.getEmission();
+
+    return 2 * PI * cosineTerm * (Li) * brdf + inter.getEmission();
+
+    //7.
+    // Intersection inter = getIntersection(ray);
+    // if (!inter.happened) return {};
+    // Vec3 wi = Random::randomHemisphereDirection(inter.getNormal());
+
+    // Ray secondRay{inter.pos, wi};
+
+    // Vec3 brdf = inter.calcBRDF(-secondRay.dir, -ray.dir);
+    // float cosineTerm = secondRay.dir.dot(inter.getNormal());
+
+    // // Intersection secondInter = getIntersection(nextRay);
+    // Vec3 Li = trace(secondRay, bouncesLeft - 1, false);
+
+    // return 2 * PI * cosineTerm * brdf * Li + inter.getEmission();
+
 }
 
 tinyobj::ObjReader Scene::reader {};

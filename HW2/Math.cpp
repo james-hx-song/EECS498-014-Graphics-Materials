@@ -143,8 +143,11 @@ Vec3 Random::randomHemisphereDirection(const Vec3 &normal) {
         Uniformly generate a direction on the hemisphere oriented towards the positive y axis,
             represented by sphere coordinates
     */
-    float azimuth = 0.0f;
-    float elevation = 0.0f;
+    float p = Random::randUniformFloat();
+    float q = Random::randUniformFloat();
+
+    float azimuth = 2 * PI * p;
+    float elevation = acos(q);
 
     // Convert spherical coordinates to Cartesian
     float x = cos(azimuth) * sin(elevation);
