@@ -24,21 +24,21 @@ Vec3 Scene::trace(const Ray &ray, int bouncesLeft, bool discardEmission) {
     // return diffuseColor;
 
     //6. 
-    Intersection inter = getIntersection(ray);
-    if (!inter.happened) return {};
-    Vec3 wi = Random::randomHemisphereDirection(inter.getNormal());
+    // Intersection inter = getIntersection(ray);
+    // if (!inter.happened) return {};
+    // Vec3 wi = Random::randomHemisphereDirection(inter.getNormal());
 
-    Ray secondRay{inter.pos, wi};
+    // Ray secondRay{inter.pos, wi};
 
-    Vec3 brdf = inter.calcBRDF(-secondRay.dir, -ray.dir);
-    float cosineTerm = secondRay.dir.dot(inter.getNormal());
+    // Vec3 brdf = inter.calcBRDF(-secondRay.dir, -ray.dir);
+    // float cosineTerm = secondRay.dir.dot(inter.getNormal());
 
-    // Intersection secondInter = getIntersection(nextRay);
-    Intersection secondInter = getIntersection(secondRay);
-    if (!secondInter.happened) return {};
-    Vec3 Li = secondInter.getEmission();
+    // // Intersection secondInter = getIntersection(nextRay);
+    // Intersection secondInter = getIntersection(secondRay);
+    // if (!secondInter.happened) return {};
+    // Vec3 Li = secondInter.getEmission();
 
-    return 2 * PI * cosineTerm * (Li) * brdf + inter.getEmission();
+    // return 2 * PI * cosineTerm * (Li) * brdf + inter.getEmission();
 
     //7.
     // Intersection inter = getIntersection(ray);
@@ -55,6 +55,39 @@ Vec3 Scene::trace(const Ray &ray, int bouncesLeft, bool discardEmission) {
 
     // return 2 * PI * cosineTerm * brdf * Li + inter.getEmission();
 
+    //8.
+    Intersection inter = getIntersection(ray);
+    if (!inter.happened) return {};
+    Ray secondRay{inter.pos, Random::cosWeightedHemisphere(inter.getNormal())};
+    Vec3 LkSum = trace(secondRay, bouncesLeft - 1, true);
+    Vec3 brdf = inter.calcBRDF(-secondRay.dir, -ray.dir);
+    float cosineTerm = secondRay.dir.dot(inter.getNormal());
+
+    Vec3 indirectEmission = PI / secondRay.dir.dot(inter.getNormal()) * cosineTerm * brdf * LkSum;
+
+    Vec3 directEmission = {};
+    Intersection lightSample = sampleLight();
+    Vec3 lightDir = lightSample.pos - inter.pos;
+    float distanceToLight = lightDir.getLength();
+    lightDir.normalize();
+    Ray rayToLight(inter.pos, lightDir);
+
+    Intersection shadowInter = getIntersection(rayToLight);
+    if (shadowInter.happened && shadowInter.object == lightSample.object) {
+        float pdfLightSample = 1.0f / lightArea;
+
+        Vec3 brdf = inter.calcBRDF(-rayToLight.dir, -ray.dir);
+        float cosineTerm1 = rayToLight.dir.dot(inter.getNormal());
+        float cosineTerm2 = -rayToLight.dir.dot(lightSample.getNormal()) / (distanceToLight * distanceToLight);
+
+        
+        directEmission = 1.0f / pdfLightSample * cosineTerm1 * cosineTerm2 * lightSample.getEmission() * brdf;
+    }
+
+    Vec3 emission = discardEmission ? Vec3{} : inter.getEmission();
+
+    return indirectEmission + directEmission + emission;
+    // return directEmission + emission;
 }
 
 tinyobj::ObjReader Scene::reader {};
