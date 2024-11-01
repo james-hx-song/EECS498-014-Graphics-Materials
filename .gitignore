@@ -319,3 +319,5 @@ TSWLatexianTemp*
 *.yaml
 *.yml
 !HW1/rasterizer/sample-tests/*.yaml
+HW2/rayTracing
+**/.DS_Store
